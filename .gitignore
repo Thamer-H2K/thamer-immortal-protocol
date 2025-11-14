@@ -1,0 +1,73 @@
+# Comprehensive Git Ignore
+
+# Protect sensitive files
+# Note: Never commit sensitive data to the repository.
+
+# Environment Variables
+.env
+
+# Passwords and Credentials
+*.key
+*.pem
+*.p12
+*.crt
+*.secret
+
+# Database files
+*.db
+*.sql
+
+# Logs
+*.log
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Rust target directory
+/target/
+
+# Node modules
+/node_modules/
+
+# Docker files
+Dockerfile
+docker-compose.yml
+*.dockerignore
+
+# IDE configurations
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+<your-editor-config-files>
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Backups
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# AI models
+*.model
+*.h5
+
+# Security reports
+*.audit
+
+# Monitoring data
+*.zip
+*.tar.gz
+
+# SSL certificates
+*.crt
+*.csr
+
+# Configuration overrides
+*.local
+*.override.yaml
+*.env.local
