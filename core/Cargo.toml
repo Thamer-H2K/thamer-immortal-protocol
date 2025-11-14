@@ -1,0 +1,22 @@
+[package]
+name = "thamer-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Thamer-H2K <thamer@thamer-protocol.org>"]
+description = "Thamer Immortal Protocol - Core Consciousness Engine"
+license = "Apache-2.0"
+repository = "https://github.com/Thamer-H2K/thamer-immortal-protocol"
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = "0.4"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+anyhow = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
