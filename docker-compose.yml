@@ -1,0 +1,38 @@
+# Thamer Immortal Protocol - Docker Compose
+# Copyright © 2025 Thamer-H2K. All Rights Reserved.
+# Contact: frankly.sa@gmail.com
+
+version: '3.8'
+
+services:
+  thamer-core:
+    build:
+      context: ./core
+      dockerfile: Dockerfile
+    container_name: thamer-core
+    restart: unless-stopped
+    networks:
+      - thamer-network
+    environment:
+      - RUST_LOG=info
+      - TZ=UTC
+    volumes:
+      - thamer-data:/data
+    healthcheck:
+      test: ["CMD", "true"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "com.thamer.component=core"
+      - "com.thamer.immortal=true"
+
+networks:
+  thamer-network:
+    driver: bridge
+    name: thamer-immortal-net
+
+volumes:
+  thamer-data:
+    driver: local
+    name: thamer-data
