@@ -1,0 +1,16 @@
+# Thamer Immortal Protocol - Intelligence Requirements
+# Copyright © 2025 Thamer-H2K. All Rights Reserved.
+# Contact: frankly.sa@gmail.com
+
+asyncio-mqtt==0.16.1
+coloredlogs==15.0.1
+python-json-logger==2.0.7
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+aiohttp==3.9.1
+requests==2.31.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+schedule==1.2.0
+python-dateutil==2.8.2
