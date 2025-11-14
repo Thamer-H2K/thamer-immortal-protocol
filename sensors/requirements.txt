@@ -1,0 +1,25 @@
+# Thamer Immortal Protocol - Sensors Requirements
+# Copyright © 2025 Thamer Aljadaan (CyberX). All Rights Reserved.
+# Contact: frankly.sa@gmail.com | +966597778968
+
+# System monitoring
+psutil==5.9.6
+
+# Async support
+asyncio==3.4.3
+
+# Network monitoring
+scapy==2.5.0
+netifaces==0.11.0
+
+# Logging and utilities
+python-dateutil==2.8.2
+colorlog==6.8.0
+
+# Data analysis
+numpy==1.24.3
+pandas==2.0.3
+
+# Configuration
+pyyaml==6.0.1
+python-dotenv==1.0.0
