@@ -1,0 +1,69 @@
+/**
+ * Thamer Immortal Protocol - Dashboard CSS
+ * Copyright © 2025 Thamer Aljadaan (CyberX). All Rights Reserved.
+ * Contact: frankly.sa@gmail.com | +966597778968
+ */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    animation: backgroundAnimation 10s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.status-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.status-card:hover {
+    transform: scale(1.05);
+}
+
+.threat-card {
+    background: rgba(255, 10, 10, 0.1);
+    border: 1px solid rgba(255, 10, 10, 0.3);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    color: #ffcccc;
+}
+
+.log-section, .philosophy {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin: 20px;
+    padding: 20px;
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .status-card, .threat-card, .log-section, .philosophy {
+        width: 90%;
+    }
+}
