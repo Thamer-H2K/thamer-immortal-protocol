@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thamer Immortal Protocol - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>🛡️ Thamer Immortal Protocol</h1>
+            <p class="subtitle">نظام الأمن السيبراني الخالد</p>
+            <div class="creator-info">
+                <p>👤 المؤسس: Thamer Aljadaan (CyberX)</p>
+                <p>📧 frankly.sa@gmail.com | 📱 +966597778968</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="container">
+        <!-- System Status -->
+        <section class="status-section">
+            <h2>📊 حالة النظام</h2>
+            <div class="status-grid">
+                <div class="status-card">
+                    <h3>⚙️ CPU</h3>
+                    <div class="status-value" id="cpu-usage">0%</div>
+                    <div class="status-bar">
+                        <div class="status-fill" id="cpu-bar"></div>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <h3>💾 Memory</h3>
+                    <div class="status-value" id="memory-usage">0%</div>
+                    <div class="status-bar">
+                        <div class="status-fill" id="memory-bar"></div>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <h3>💿 Disk</h3>
+                    <div class="status-value" id="disk-usage">0%</div>
+                    <div class="status-bar">
+                        <div class="status-fill" id="disk-bar"></div>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <h3>🌐 Network</h3>
+                    <div class="status-value" id="network-connections">0</div>
+                    <p class="status-label">اتصالات نشطة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Threats Section -->
+        <section class="threats-section">
+            <h2>🚨 التهديدات الأمنية</h2>
+            <div class="threats-grid">
+                <div class="threat-card">
+                    <h3>🛡️ التهديدات المحظورة</h3>
+                    <div class="threat-count" id="threats-blocked">0</div>
+                </div>
+                <div class="threat-card">
+                    <h3>⚠️ التنبيهات النشطة</h3>
+                    <div class="threat-count" id="active-alerts">0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Log -->
+        <section class="log-section">
+            <h2>📜 السجل المباشر</h2>
+            <div class="log-container" id="log-container">
+                <div class="log-entry">
+                    <span class="log-time">19:05:02</span>
+                    <span class="log-message">🚀 النظام يعمل بشكل طبيعي</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="philosophy-section">
+            <div class="philosophy-box">
+                <h2>💪 الفلسفة</h2>
+                <p class="philosophy-text">لا موت. لا توقف. لا استسلام.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Thamer Aljadaan (CyberX). All Rights Reserved.</p>
+            <p>📧 frankly.sa@gmail.com | 📱 +966597778968 | 🇸🇦 Saudi Arabia</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
