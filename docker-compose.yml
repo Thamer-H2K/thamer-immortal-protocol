@@ -1,61 +1,165 @@
-# Thamer Immortal Protocol - Docker Compose
-# Copyright © 2025 Thamer-H2K. All Rights Reserved.
-# Contact: frankly.sa@gmail.com
-
-version: '3.8'
-
-services:
-  thamer-core:
-    build:
-      context: ./core
-      dockerfile: Dockerfile
-    container_name: thamer-core
-    restart: unless-stopped
-    networks:
-      - thamer-network
-    environment:
-      - RUST_LOG=info
-      - TZ=UTC
-    volumes:
-      - thamer-data:/data
-    healthcheck:
-      test: ["CMD", "true"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    labels:
-      - "com.thamer.component=core"
-      - "com.thamer.immortal=true"
-
-  # AI Intelligence Brain (Python)
-  thamer-brain:
-    build:
-      context: ./intelligence
-      dockerfile: Dockerfile
-    container_name: thamer-brain
-    restart: unless-stopped
-    networks:
-      - thamer-network
-    environment:
-      - PYTHONUNBUFFERED=1
-      - TZ=UTC
-    depends_on:
-      - thamer-core
-    healthcheck:
-      test: ["CMD", "python", "-c", "print('ok')"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    labels:
-      - "com.thamer.component=intelligence"
-      - "com.thamer.immortal=true"
-      
-networks:
-  thamer-network:
-    driver: bridge
-    name: thamer-immortal-net
-
-volumes:
-  thamer-data:
-    driver: local
-    name: thamer-data
+version: '3.8'  
+services:  
+  core:  
+    image: core-image:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    environment:  
+      - SECURE_VAR=${SECURE_VAR}  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  brain:  
+    image: brain-image:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  sensors:  
+    image: sensors-image:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  api:  
+    image: api-image:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  dashboard:  
+    image: dashboard-image:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  timescaledb:  
+    image: timescaledb-image:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  redis:  
+    image: redis:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  rabbitmq:  
+    image: rabbitmq:latest  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  prometheus:  
+    image: prom/prometheus  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+  grafana:  
+    image: grafana/grafana  
+    deploy:  
+      resources:  
+        limits:  
+          cpus: '0.5'  
+          memory: 512M  
+    user: 'non-root'  
+    networks:  
+      - secure_network  
+    healthcheck:  
+      test: ['CMD', 'curl', '-f', 'http://localhost:port']  
+      interval: 1m30s  
+      timeout: 10s  
+      retries: 3  
+networks:  
+  secure_network:  
+    driver: bridge  
+volumes:  
+  timescaledb_data:  
+    driver: local  
+  redis_data:  
+    driver: local  
+secrets:  
+  my_secret:  
+    external: true  
