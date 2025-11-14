@@ -27,6 +27,29 @@ services:
       - "com.thamer.component=core"
       - "com.thamer.immortal=true"
 
+  # AI Intelligence Brain (Python)
+  thamer-brain:
+    build:
+      context: ./intelligence
+      dockerfile: Dockerfile
+    container_name: thamer-brain
+    restart: unless-stopped
+    networks:
+      - thamer-network
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=UTC
+    depends_on:
+      - thamer-core
+    healthcheck:
+      test: ["CMD", "python", "-c", "print('ok')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "com.thamer.component=intelligence"
+      - "com.thamer.immortal=true"
+      
 networks:
   thamer-network:
     driver: bridge
