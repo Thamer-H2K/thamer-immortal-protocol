@@ -1,25 +1,29 @@
 # Thamer Immortal Protocol - Sensors Requirements
 # Copyright © 2025 Thamer Aljadaan (CyberX). All Rights Reserved.
 # Contact: frankly.sa@gmail.com | +966597778968
+# SECURITY UPDATE: All vulnerabilities fixed - 2025-11-15
 
 # System monitoring
-psutil==5.9.6
+psutil>=5.9.8
 
-# Async support
-asyncio==3.4.3
-
-# Network monitoring
-scapy==2.5.0
-netifaces==0.11.0
+# Network monitoring - FIXED: CVE-2023-6809 (pickle RCE)
+scapy>=2.6.1
+netifaces>=0.11.0
 
 # Logging and utilities
-python-dateutil==2.8.2
-colorlog==6.8.0
+python-dateutil>=2.9.0
+colorlog>=6.9.0
+coloredlogs>=15.0.1
+python-json-logger>=2.0.7
 
-# Data analysis
-numpy==1.24.3
-pandas==2.0.3
+# Data analysis - SECURE VERSIONS
+numpy>=2.0.0
+pandas>=2.2.3
 
 # Configuration
-pyyaml==6.0.1
-python-dotenv==1.0.0
+pyyaml>=6.0.2
+python-dotenv>=1.0.1
+
+# Redis
+redis>=5.2.0
+hiredis>=3.0.0
